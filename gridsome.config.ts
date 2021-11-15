@@ -6,6 +6,10 @@
 
 module.exports = {
   siteName: '月饼的技术博客',
-  plugins: [],
+  plugins: [
+    {
+      use: 'gridsome-plugin-typescript',
+    },
+  ],
   siteUrl : 'https://allen-bayern.github.io',
 };
