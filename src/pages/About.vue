@@ -5,7 +5,7 @@
   </Layout>
 </template>
 
-<script>
+<script lang="ts">
 export default defineComponent({
 metaInfo: {
     title: 'About us'

@@ -18,10 +18,10 @@
   </Layout>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Hello, world!',
   },
 };
 </script>
