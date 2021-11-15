@@ -10,6 +10,19 @@ module.exports = {
     {
       use: 'gridsome-plugin-typescript',
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: './posts/**/*.md',
+        typeName: 'BlogPost',
+        remark: {},
+      }
+    },
   ],
+  transformers: {
+    remark: {
+
+    },
+  },
   siteUrl : 'https://allen-bayern.github.io',
 };
