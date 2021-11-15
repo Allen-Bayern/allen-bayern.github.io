@@ -8,5 +8,4 @@ module.exports = {
   siteName: '月饼的技术博客',
   plugins: [],
   siteUrl : 'https://allen-bayern.github.io',
-  pathPrefix: '/yuebing-blog',
 };
