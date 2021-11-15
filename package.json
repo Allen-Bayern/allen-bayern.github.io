@@ -9,6 +9,8 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "vuetify": "^2.5.14",
+    "webpack-node-externals": "^3.0.0"
   }
 }
