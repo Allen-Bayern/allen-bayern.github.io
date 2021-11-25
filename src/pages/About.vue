@@ -6,11 +6,13 @@
 </template>
 
 <script lang="ts">
-export default defineComponent({
-metaInfo: {
-    title: 'About us'
+export default {
+  metaInfo() : any {
+    return {
+      title : 'About',
+    };
   },
-});
+};
 </script>
 
 <script setup>

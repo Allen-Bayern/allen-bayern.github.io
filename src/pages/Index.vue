@@ -20,8 +20,10 @@
 
 <script lang="ts">
 export default {
-  metaInfo: {
-    title: 'Hello, world!',
+  metaInfo() : any { // 这个any有点...
+    return {
+      title: 'Hello, world!',
+    };
   },
 };
 </script>
