@@ -1,20 +1,29 @@
 <template>
   <Layout>
-    <h1>About us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.</p>
+    你已经为他续了{{ N }}秒！请继续加油
+    <button @click="add">+1s</button>
   </Layout>
 </template>
 
 <script lang="ts">
-export default {
-  metaInfo() : any {
+import Vue from 'vue';
+// import "~/meta-info";
+
+let N : number;
+
+export default Vue.extend({
+  metaInfo: {
+    title : 'About',
+  },
+  data(){
     return {
-      title : 'About',
+      N : 1,
     };
   },
-};
-</script>
-
-<script setup>
-
+  methods: {
+    add() : void {
+      ++this.N;
+    }
+  }
+});
 </script>
