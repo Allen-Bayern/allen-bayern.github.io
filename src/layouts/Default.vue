@@ -8,7 +8,7 @@
     </v-navigation-drawer>
 
     <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="hideOrShow"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Blog</v-toolbar-title>
     </v-app-bar>
@@ -28,14 +28,16 @@ query {
 </static-query>
 
 <script lang="ts">
-let drawer: boolean = false;
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default {
-  data() {
-    return {
-      drawer,
-    };
-  }
+@Component
+export default class DefaultLayout extends Vue {
+  drawer : boolean = false;
+
+  hideOrShow() : void {
+    this.drawer = !this.drawer;
+  };
 };
 </script>
 
