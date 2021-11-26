@@ -1,5 +1,6 @@
 import * as Vue from 'vue';
-import { MetaInfo, MetaInfoComputed } from 'vue-meta';
+import MetaInfo from 'vue-meta';
+import MetaInfoComputed from 'vue-meta';
 declare module "*.vue" {
   export default Vue;
 }
