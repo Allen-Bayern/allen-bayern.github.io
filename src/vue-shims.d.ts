@@ -1,12 +1,11 @@
-import Vue from "vue";
-
+import * as Vue from 'vue';
+import { MetaInfo, MetaInfoComputed } from 'vue-meta';
 declare module "*.vue" {
-  // import Vue from "vue";
   export default Vue;
 }
 
 declare module "vue/types/options" {
-  export interface ComponentOptions<V extends Vue> {
-      metaInfo?: any;
+  interface ComponentOptions<V extends Vue> {
+      metaInfo?: MetaInfo | MetaInfoComputed | undefined;
   }
 }

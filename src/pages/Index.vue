@@ -19,13 +19,17 @@
 </template>
 
 <script lang="ts">
-export default {
-  metaInfo() : any { // 这个any有点...
-    return {
-      title: 'Hello, world!',
-    };
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
+@Component({
+  metaInfo: {
+    title : 'Hello，欢迎来我的博客闲逛！',
   },
-};
+})
+export default class Index extends Vue {
+  
+}
 </script>
 
 <style lang="stylus" scoped>

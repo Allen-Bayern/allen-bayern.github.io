@@ -7,22 +7,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-let N : number;
+@Component({
+  metaInfo : {
+    title : '关于我',
+  },
+})
+export default class About extends Vue {
+  N : number = 1;
 
-export default Vue.extend({
-  metaInfo: {
-    title : 'About',
-  },
-  data(){
-    return {
-      N : 1,
-    };
-  },
-  methods: {
-    add() : void {
-      ++this.N;
-    }
+  add() : void {
+    ++this.N;
   }
-});
+};
 </script>
