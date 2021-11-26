@@ -8,7 +8,7 @@
     </v-navigation-drawer>
 
     <v-app-bar app>
-      <v-app-bar-nav-icon @click="hideOrShow"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="showOrHide"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Blog</v-toolbar-title>
     </v-app-bar>
@@ -35,9 +35,9 @@ import Component from 'vue-class-component';
 export default class DefaultLayout extends Vue {
   drawer : boolean = false;
 
-  hideOrShow() : void {
+  showOrHide() : void {
     this.drawer = !this.drawer;
-  };
+  }
 };
 </script>
 
