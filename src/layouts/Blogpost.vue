@@ -4,11 +4,13 @@
       v-model="drawer"
       app
     >
-      您好
+      <div>
+        <slot name="sidebar"></slot>
+      </div>
     </v-navigation-drawer>
 
     <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="showOrHide"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Blog</v-toolbar-title>
     </v-app-bar>
@@ -28,18 +30,23 @@ query {
 </static-query>
 
 <script lang="ts">
-let drawer: boolean = false;
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default {
-  data() {
-    return {
-      drawer,
-    };
+@Component
+export default class BlogpostLayout extends Vue {
+  drawer : boolean = false;
+
+  showOrHide() : void {
+    this.drawer = !this.drawer;
   }
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 body
-  font-family -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+  font-family -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  margin 0
+  padding 0
+  line-height 1.5
 </style>
