@@ -1,52 +1,95 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
+    <v-app-bar
       app
+      color="white"
+      flat
     >
-      <div>
-        <slot name="sidebar"></slot>
-      </div>
-    </v-navigation-drawer>
+      <v-avatar
+        :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
+        size="32"
+      ></v-avatar>
 
-    <v-app-bar app>
-      <v-app-bar-nav-icon @click="showOrHide"></v-app-bar-nav-icon>
+      <v-tabs
+        centered
+        class="ml-n9"
+        color="grey darken-1"
+      >
+        <v-tab
+          v-for="link in links"
+          :key="link"
+        >
+          {{ link }}
+        </v-tab>
+      </v-tabs>
 
-      <v-toolbar-title>Blog</v-toolbar-title>
+      <v-avatar
+        class="hidden-sm-and-down"
+        color="grey darken-1 shrink"
+        size="32"
+      ></v-avatar>
     </v-app-bar>
 
-    <v-main>
-      <slot></slot>
+    <v-main class="grey lighten-3">
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            sm="2"
+          >
+            <v-sheet
+              rounded="lg"
+              min-height="268"
+            >
+              <slot
+                name="left-column"
+              ></slot>
+            </v-sheet>
+          </v-col>
+
+          <v-col
+            cols="12"
+            sm="8"
+          >
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+            >
+              <slot></slot>
+            </v-sheet>
+          </v-col>
+
+          <v-col
+            cols="12"
+            sm="2"
+          >
+            <v-sheet
+              rounded="lg"
+              min-height="268"
+            >
+              <slot
+                name="right-column">
+              </slot>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
-
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
 
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
 @Component
-export default class BlogpostLayout extends Vue {
-  drawer : boolean = false;
-
-  showOrHide() : void {
-    this.drawer = !this.drawer;
-  }
+export default class BlogPost extends Vue {
+  links : String[] = [
+    'Dashboard',
+    'Messages',
+    'Profile',
+    'Updates',
+  ];
 };
 </script>
-
-<style lang="stylus">
-body
-  font-family -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin 0
-  padding 0
-  line-height 1.5
-</style>
+Footer

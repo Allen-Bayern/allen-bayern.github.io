@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: '月饼的技术博客',
+  siteName: '月饼的',
   plugins: [
     {
       use: 'gridsome-plugin-typescript',
@@ -23,6 +23,10 @@ module.exports = {
     remark: {
 
     },
+  },
+  port: 1926,
+  templates: {
+    BlogPost: '/blog/:title',
   },
   siteUrl : 'https://allen-bayern.github.io',
 };
