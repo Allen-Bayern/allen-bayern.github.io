@@ -6,7 +6,7 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -b github/master -d dist"
+    "deploy": "gh-pages -o github -d dist"
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
