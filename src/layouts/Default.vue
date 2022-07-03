@@ -57,12 +57,12 @@
                 <v-list-item
                   link
                   color="grey lighten-4"
+                  @click="refresh"
                 >
                   <v-list-item-content
-                    @click="refresh"
                   >
                     <v-list-item-title>
-                      Refresh
+                      刷新本页
                     </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
