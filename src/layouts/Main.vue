@@ -18,13 +18,15 @@
           <v-sheet
             color="#ffd7c4"
             width="12.5rem"
-          ></v-sheet>
+          >
+            <slot name="left-side"></slot>
+          </v-sheet>
         </v-col>
         <v-col cols="2">
           <v-sheet
             color="#FFC5A9"
           >
-            <slot></slot>
+            <slot name="main-content"></slot>
           </v-sheet>
         </v-col>
       </v-container>
