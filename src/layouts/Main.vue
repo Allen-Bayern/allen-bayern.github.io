@@ -14,7 +14,7 @@
     <v-main>
       <v-container>
         <v-row no-gutters>
-          <v-col cols="3">
+          <v-col cols="2">
             <v-sheet>
               <slot name="left-side"></slot>
             </v-sheet>
