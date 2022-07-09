@@ -4,7 +4,6 @@
     <v-app-bar
       app
       color="#fff"
-      height="3.875000rem"
       flat
     >
       <v-container>
@@ -14,25 +13,30 @@
 
     <v-main>
       <v-container>
-        <v-col>
-          <v-sheet
-            color="#ffd7c4"
-            width="12.5rem"
-          >
-            <slot name="left-side"></slot>
-          </v-sheet>
-        </v-col>
-        <v-col cols="2">
-          <v-sheet
-            color="#FFC5A9"
-          >
-            <slot name="main-content"></slot>
-          </v-sheet>
-        </v-col>
+        <v-row no-gutters>
+          <v-col cols="3">
+            <v-sheet>
+              <slot name="left-side"></slot>
+            </v-sheet>
+          </v-col>
+          <v-col>
+            <v-sheet>
+              <slot name="main-content"></slot>
+            </v-sheet>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
 </template>
+
+<static-query>
+query {
+  metadata {
+    siteName
+  }
+}
+</static-query>
 
 <script lang="ts">
 import Vue from 'vue';
@@ -40,6 +44,7 @@ import Component from 'vue-class-component';
 
 @Component
 export default class MainTheme extends Vue {
+
 
 };
 </script>
