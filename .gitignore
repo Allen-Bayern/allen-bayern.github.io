@@ -6,3 +6,12 @@ node_modules
 dist
 .env
 .env.*
+# Python cache
+__pycache__
+
+# IDEs
+.vscode
+.idea
+
+# C++
+*.sln
