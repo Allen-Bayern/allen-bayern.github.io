@@ -1,8 +1,6 @@
 // To define public interfaces
 
-interface NaviLink {
+export interface NaviLink {
   name: string,
   url: string
-}
-
-export { NaviLink };
+};
