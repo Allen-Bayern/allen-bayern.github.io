@@ -21,7 +21,6 @@ import {
   Component, 
   Prop,
   } from 'vue-property-decorator';
-import { NaviLink } from '../utils/interfaces';
 
 @Component
 export default class LeftNavigator extends Vue {

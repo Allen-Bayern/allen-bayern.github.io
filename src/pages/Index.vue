@@ -51,7 +51,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import LeftNavigator from '../components/LeftNavigator.vue';
-import { NaviLink } from '../utils/interfaces';
 
 @Component({
   metaInfo: {
