@@ -3,10 +3,10 @@
     <div class="navi-title">{{ naviTitle }}</div>
     <div 
       class="navi-links"
-      v-for="(link, index) in naviLinks"
+      v-for="(item, index) in naviLinks"
       :key="index"
     >
-      {{ link }}
+      {{ item.linkName }}
     </div>
   </div>
 </template>
@@ -19,16 +19,16 @@ import {
   } from 'vue-property-decorator';
 
 // Interfaces
-interface Link {
-  linkName: String,
-  linkURL: String,
+interface naviLink {
+  name: String,
+  url: String,
 }
 
 @Component
 export default class LeftNavigator extends Vue {
   // Props
   @Prop({ default: '' }) readonly naviTitle: string;
-  @Prop({ default: [] }) readonly naviLinks: Link[];
+  @Prop({ default: [] }) readonly naviLinks: naviLink[];
 
 };
 </script>
