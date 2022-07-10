@@ -9,7 +9,8 @@
       "strict": true,
       "experimentalDecorators" : true,
       "types": ["vuetify"],
-      "allowJs": true
+      "allowJs": true,
+      "strictPropertyInitialization": false
   },
   "include": [
       "./src/**/*"

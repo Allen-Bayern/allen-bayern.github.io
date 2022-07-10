@@ -56,7 +56,7 @@ import Component from 'vue-class-component';
 })
 export default class Index extends Vue {
   
-}
+};
 </script>
 
 <style lang="stylus" scoped>
