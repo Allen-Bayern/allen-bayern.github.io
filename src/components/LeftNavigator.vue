@@ -6,7 +6,11 @@
       v-for="(item, index) in naviLinks"
       :key="index"
     >
-      {{ item.linkName }}
+      <g-link
+        :to="item.url"
+      >
+        {{ item.name }}
+      </g-link>
     </div>
   </div>
 </template>
