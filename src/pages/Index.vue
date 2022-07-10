@@ -4,7 +4,9 @@
       Hey! This is Yueb's blog!
     </template>
     <template slot="left-side">
-      Lorem ipsum
+      <left-navigator
+
+      ></left-navigator>
     </template>
     <template slot="main-content">
       <div class="main-content">
@@ -48,11 +50,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import LeftNavigator from '../components/LeftNavigator.vue';
+import { NaviLink } from '../utils/interfaces';
 
 @Component({
   metaInfo: {
     title : '欢迎来我的博客闲逛',
   },
+  components: {
+    LeftNavigator,
+  }
 })
 export default class Index extends Vue {
   

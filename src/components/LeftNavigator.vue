@@ -32,5 +32,8 @@ export default class LeftNavigator extends Vue {
 .navigation
   display flex
   flex-direction column
-  justify-content right
+  justify-content center
+  .navi-links
+    display flex
+    flex-direction inherit
 </style>
