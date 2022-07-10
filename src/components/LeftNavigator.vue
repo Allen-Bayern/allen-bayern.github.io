@@ -17,18 +17,13 @@ import {
   Component, 
   Prop,
   } from 'vue-property-decorator';
-
-// Interfaces
-interface naviLink {
-  name: String,
-  url: String,
-}
+import { NaviLink } from '../utils/interfaces';
 
 @Component
 export default class LeftNavigator extends Vue {
   // Props
   @Prop({ default: '' }) readonly naviTitle: string;
-  @Prop({ default: [] }) readonly naviLinks: naviLink[];
+  @Prop({ default: [] }) readonly naviLinks: NaviLink[];
 
 };
 </script>
