@@ -4,9 +4,9 @@
       Hey! This is Yueb's blog!
     </template>
     <template slot="left-side">
-      <left-navigator
-
-      ></left-navigator>
+      <div class="navigators">
+        <left-navigator></left-navigator>
+      </div>
     </template>
     <template slot="main-content">
       <div class="main-content">

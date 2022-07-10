@@ -1,4 +1,3 @@
-Add components that will be imported to Pages and Layouts to this folder.
-Learn more about components here: https://gridsome.org/docs/components/
+# Components
 
-You can delete this file.
+This folder is for components.
