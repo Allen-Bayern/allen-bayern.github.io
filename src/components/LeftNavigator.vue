@@ -1,17 +1,16 @@
 <template>
   <div class="navigation">
-    <div class="navi-title">{{ naviTitle }}</div>
-    <div 
-      class="navi-links"
-      v-for="(item, index) in naviLinks"
-      :key="index"
+    <v-card
+      height="400"
+      width="256"
+      class="mx-auto"
     >
-      <g-link
-        :to="item.url"
+      <v-navigation-drawer
+        v-model="isDrawerOpen"
       >
-        {{ item.name }}
-      </g-link>
-    </div>
+        <v-list></v-list>
+      </v-navigation-drawer>
+    </v-card>
   </div>
 </template>
 
@@ -19,24 +18,32 @@
 import { 
   Vue, 
   Component, 
-  Prop,
-  } from 'vue-property-decorator';
+  Model,
+  Watch,
+} from 'vue-property-decorator';
 
 @Component
 export default class LeftNavigator extends Vue {
-  // Props
-  @Prop({ default: '' }) readonly naviTitle: string;
-  @Prop({ default: [] }) readonly naviLinks: NaviLink[];
+  // Model
+  @Model('change', { 
+    type: Boolean,
+  }) readonly value!: boolean;
 
+  // Watchers
+  @Watch('value', {
+    immediate: true
+  }) onValueChange(val: Boolean) {
+    const self = this;
+    self.isDrawerOpen = val;
+  }
+
+  // Data
+  isDrawerOpen : Boolean = false;
+
+  // Methods
 };
 </script>
 
 <style lang="stylus" scoped>
-.navigation
-  display flex
-  flex-direction column
-  justify-content center
-  .navi-links
-    display flex
-    flex-direction inherit
+
 </style>

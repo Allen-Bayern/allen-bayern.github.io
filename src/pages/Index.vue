@@ -1,12 +1,11 @@
 <template>
   <layout>
     <template slot="header">
-      Hey! This is Yueb's blog!
+      <h1 class="yueb">
+        Hey! This is Yueb's blog!
+      </h1>
     </template>
     <template slot="left-side">
-      <div class="navigators">
-        <left-navigator></left-navigator>
-      </div>
     </template>
     <template slot="main-content">
       <div class="main-content">
@@ -50,15 +49,11 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import LeftNavigator from '../components/LeftNavigator.vue';
 
 @Component({
   metaInfo: {
     title : '欢迎来我的博客闲逛',
   },
-  components: {
-    LeftNavigator,
-  }
 })
 export default class Index extends Vue {
   
@@ -68,12 +63,21 @@ export default class Index extends Vue {
 <style lang="stylus" scoped>
 // Variations
 font-stack = chelsea market, Georgia, serif
+font-meyer = IM Fell English, Eczar, Georgia, serif
 
 // CSS codes
+.yueb
+  font-family font-meyer
+  font-style italic
+  text-align center
+  font-weight normal
+  font-size 2.5rem
+
 .main-content
   display flex
   flex-direction column
   align-items center
+
   &.g-image
     margin 1rem 0 1rem 0
 

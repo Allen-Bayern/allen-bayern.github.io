@@ -3,7 +3,6 @@
 
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
-// import DefaultLayout from '~/layouts/Default.vue';
 import MainTheme from '~/layouts/Main.vue';
 
 export default function (Vue, { appOptions, head }) {
