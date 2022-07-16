@@ -10,3 +10,9 @@ declare module "vue/types/options" {
       metaInfo?: MetaInfo | MetaInfoComputed | undefined;
   }
 }
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $page: string;
+  }
+}

@@ -1,24 +1,33 @@
 <template>
-  <layout></layout>
+  <layout>
+    <template slot="main-content">
+      <div class="article">
+        <h1>{{ $page.blogPost.title }}</h1>
+        <span>{{ $page.blogPost.date }}</span>
+        <div class="content" v-html="$page.blogPost.content" />
+      </div>
+    </template>
+  </layout>
 </template>
 
 <page-query>
   query BlogPost ($path: String!) {
-    blogPost
+    blogPost (path: $path) {
+      title
+      date (format: "D MMMM, YYYY")
+      content
+    }
   }
 </page-query>
 
-<script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
-
-@Component({
-  components: {
+<script>
+export default {
+  metaInfo() {
+    return {
+      title: this.$page.blogPost.title,
+    };
   },
-})
-export default class Blogpost extends Vue{
-
-};
+}
 </script>
 
 <style lang="stylus" scoped>

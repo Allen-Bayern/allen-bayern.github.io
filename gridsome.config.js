@@ -14,20 +14,15 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'posts/*.md',
+        path: 'blog/*.md',
         typeName: 'BlogPost',
-        remark: {},
-      }
+        // route: '/:slug',
+      },
     },
   ],
-  transformers: {
-    remark: {
-
-    },
+  templates: {
+    BlogPost : '/:slug',
   },
   port: 1926,
-  templates: {
-    BlogPost: '/blog/:title',
-  },
   siteUrl : 'https://allen-bayern.github.io',
 };
