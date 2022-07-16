@@ -8,7 +8,21 @@
       <v-navigation-drawer
         v-model="isDrawerOpen"
       >
-        <v-list></v-list>
+        <v-list>
+          <v-list-item
+            v-for="(item, index) in links"
+            :key="index"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-divider></v-divider>
+            <v-list-item
+              v-for="(elem, _index) in item"
+              :key="_index"
+            >
+              {{ elem }}
+            </v-list-item>
+          </v-list-item>
+        </v-list>
       </v-navigation-drawer>
     </v-card>
   </div>
@@ -17,7 +31,8 @@
 <script lang="ts">
 import { 
   Vue, 
-  Component, 
+  Component,
+  Prop,
   Model,
   Watch,
 } from 'vue-property-decorator';
@@ -28,6 +43,11 @@ export default class LeftNavigator extends Vue {
   @Model('change', { 
     type: Boolean,
   }) readonly value!: boolean;
+
+  // Props
+  @Prop({
+    default: [],
+  }) readonly links: NavigationLinks[];
 
   // Watchers
   @Watch('value', {

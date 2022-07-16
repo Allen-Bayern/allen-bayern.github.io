@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: '月饼的',
+  titleTemplate: `%s - Yueb`,
   plugins: [
     {
       use: 'gridsome-plugin-typescript',
@@ -13,7 +14,7 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: './posts/**/*.md',
+        path: 'posts/*.md',
         typeName: 'BlogPost',
         remark: {},
       }
