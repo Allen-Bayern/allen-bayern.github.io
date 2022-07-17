@@ -7,3 +7,9 @@ interface NavigationLinks {
   title: string,
   links?:  string | string[],
 }
+
+interface BlogPost {
+  title: string,
+  content: string,
+  date: string,
+}

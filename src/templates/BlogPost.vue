@@ -20,13 +20,19 @@
   }
 </page-query>
 
-<script>
-export default {
+<script  lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+
+@Component({
   metaInfo() {
+    const self = this;
     return {
-      title: this.$page.blogPost.title,
+      title: (self as any)['$page'].blogPost.title,
     };
   },
+})
+export default class BlogPost extends Vue {
+  
 }
 </script>
 
