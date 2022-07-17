@@ -6,6 +6,12 @@
       </h1>
     </template>
     <template slot="left-side">
+      <div class="side-cards">
+        <navigator-card
+          :cardTitle="cardTitle"
+          :subtitlesBelow="myArticle"
+        ></navigator-card>
+      </div>
     </template>
     <template slot="main-content">
       <div class="main-content">
@@ -49,14 +55,26 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import NavigationLinks from '../abstract';
+import NavigatorCard from '../components/NavigatorCard.vue';
 
 @Component({
   metaInfo: {
     title : '欢迎来我的博客闲逛',
   },
+  components: {
+    NavigatorCard,
+  },
 })
 export default class Index extends Vue {
-  
+  // data
+  cardTitle: string = '文章';
+  myArticle: NavigationLinks[] = [
+    {
+      title: 'jzm',
+      link: '/first',
+    },
+  ];
 };
 </script>
 
