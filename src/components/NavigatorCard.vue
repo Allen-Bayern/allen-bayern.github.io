@@ -2,13 +2,11 @@
   <div class="my-navigator">
     <h1 
       class="card-title"
-      @click="handleFolding"
     >
       {{ cardTitle }}
     </h1>
     <h2 
       class="subtitles"
-      v-if="!isFolded"
       v-for="(subtitle, index) in subtitlesBelow"
       :key="index"
     >
@@ -23,7 +21,6 @@ import {
   Component,
   Prop, 
 } from 'vue-property-decorator';
-// import NavigationLinks from '../abstract';
 
 @Component
 export default class NavigatorCard extends Vue {
@@ -35,10 +32,6 @@ export default class NavigatorCard extends Vue {
   isFolded: boolean = false;
 
   // Methods
-  handleFolding() : void {
-    const self = this;
-    self.isFolded = !self.isFolded;
-  }
 };
 </script>
 
