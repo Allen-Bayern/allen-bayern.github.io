@@ -16,7 +16,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   metaInfo() {
-    const self = this;
+    const self : Vue = this;
     return {
       title: (self as any).$static.metadata.siteName,
       meta: [

@@ -7,5 +7,3 @@ interface NavigationLinks {
   title: string,
   link:  string,
 }
-
-declare let NavigationLinks: NavigationLinks;
