@@ -2,16 +2,22 @@
   <div class="my-navigator">
     <h1 
       class="card-title"
+      @click="handleFolding"
     >
       {{ cardTitle }}
     </h1>
-    <h2 
-      class="subtitles"
-      v-for="(subtitle, index) in subtitlesBelow"
-      :key="index"
+    <div 
+      class="subtitle-wrapper"
+      v-if="!isFolded"
     >
-      <g-link :to="subtitle.link">{{ subtitle.title }}</g-link>
-    </h2>
+      <h2 
+        class="subtitles"
+        v-for="(subtitle, index) in subtitlesBelow"
+        :key="index"
+      >
+        <g-link :to="subtitle.link">{{ subtitle.title }}</g-link>
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -32,6 +38,10 @@ export default class NavigatorCard extends Vue {
   isFolded: boolean = false;
 
   // Methods
+  handleFolding(): void {
+    const self = this;
+    self.isFolded = !self.isFolded;
+  }
 };
 </script>
 
