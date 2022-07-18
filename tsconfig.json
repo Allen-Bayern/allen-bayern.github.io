@@ -10,7 +10,8 @@
       "experimentalDecorators" : true,
       "types": ["vuetify"],
       "allowJs": true,
-      "strictPropertyInitialization": false
+      "strictPropertyInitialization": false,
+      "jsx" : "react"
   },
   "include": [
       "./src/**/*"
