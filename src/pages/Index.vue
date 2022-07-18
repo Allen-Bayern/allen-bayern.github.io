@@ -55,7 +55,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import NavigationLinks from '../abstract';
+// import NavigationLinks from '../abstract';
 import NavigatorCard from '../components/NavigatorCard.vue';
 
 @Component({

@@ -25,7 +25,7 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component({
   metaInfo() {
-    const self = this;
+    const self : Vue = this;
     return {
       title: (self as any)['$page'].blogPost.title,
     };

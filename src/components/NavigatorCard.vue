@@ -18,7 +18,7 @@ import {
   Component,
   Prop, 
 } from 'vue-property-decorator';
-import NavigationLinks from '../abstract';
+// import NavigationLinks from '../abstract';
 
 @Component
 export default class NavigatorCard extends Vue {
