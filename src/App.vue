@@ -11,19 +11,22 @@ query {
 }
 </static-query>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   metaInfo() {
+    const self = this;
     return {
-      title: this.$static.metadata.siteName,
+      title: (self as any).$static.metadata.siteName,
       meta: [
         {
           key: 'description',
           name: 'description',
-          content: this.$static.metadata.siteDescription
+          content: (self as any).$static.metadata.siteDescription
         }
       ]
-    }
-  }
-}
+    };
+  },
+});
 </script>

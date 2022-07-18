@@ -1,9 +1,14 @@
 <template>
   <div class="my-navigator">
-    <h1 class="card-title">
+    <h1 
+      class="card-title"
+      @click="handleFolding"
+    >
       {{ cardTitle }}
     </h1>
-    <h2 class="subtitles"
+    <h2 
+      class="subtitles"
+      v-if="!isFolded"
       v-for="(subtitle, index) in subtitlesBelow"
       :key="index"
     >
@@ -25,6 +30,15 @@ export default class NavigatorCard extends Vue {
   // Props
   @Prop({ default: '' }) readonly cardTitle: string;
   @Prop({ default: () => [] }) readonly subtitlesBelow : NavigationLinks[];
+
+  // Data
+  isFolded: boolean = false;
+
+  // Methods
+  handleFolding() : void {
+    const self = this;
+    self.isFolded = !self.isFolded;
+  }
 };
 </script>
 
@@ -37,8 +51,11 @@ export default class NavigatorCard extends Vue {
   .card-title
     font-size 1.6rem
     display flex
-    flex-direction column
+    &::before
+      content ''
+      flex-grow 1
     &::after
       content 'HIM'
+      flex-grow 1
       font-size 0.4rem
 </style>
