@@ -11,12 +11,12 @@
       "types": ["vuetify"],
       "allowJs": true,
       "strictPropertyInitialization": false,
-      "jsx" : "react",
+      "jsx" : "react-jsx",
       "typeRoots" : ["./node_modules/@types", "./typings"]
   },
   "include": [
       "./src/**/*",
       "./src/*.d.ts",
-      "typings"
+      "./typings/*.d.ts"
   ]
 }
