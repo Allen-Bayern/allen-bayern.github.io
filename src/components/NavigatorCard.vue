@@ -27,13 +27,13 @@ import {
   Component,
   Prop, 
 } from 'vue-property-decorator';
-// import {NavigationLink} from "../types/types";
+import {NavigationLink} from "../types/types";
 
 @Component
 export default class NavigatorCard extends Vue {
   // Props
   @Prop({ default: '' }) readonly cardTitle: string;
-  @Prop({ default: () => [] }) readonly subtitlesBelow : Yueb.NavigationLink[];
+  @Prop({ default: () => [] }) readonly subtitlesBelow : NavigationLink[];
 
   // Data
   isFolded: boolean = false;

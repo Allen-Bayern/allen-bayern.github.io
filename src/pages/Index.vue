@@ -57,7 +57,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import NavigatorCard from '../components/NavigatorCard.vue';
 
-// import { NavigationLink } from "../types/types";
+import { NavigationLink } from "../types/types";
 
 @Component({
   metaInfo: {
@@ -70,7 +70,7 @@ import NavigatorCard from '../components/NavigatorCard.vue';
 export default class Index extends Vue {
   // data
   cardTitle: string = '文章共赏';
-  myArticle: Yueb.NavigationLink[] = [
+  myArticle: NavigationLink[] = [
     {
       title: 'jzm',
       link: '/first',
