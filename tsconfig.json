@@ -12,11 +12,11 @@
       "allowJs": true,
       "strictPropertyInitialization": false,
       "jsx" : "react-jsx",
-      "typeRoots" : ["./node_modules/@types", "./typings"]
+      "typeRoots" : ["./node_modules/@types", "./types"]
   },
   "include": [
       "./src/**/*",
       "./src/*.d.ts",
-      "./typings/*.d.ts"
+      "./types/*.d.ts"
   ]
 }

@@ -1,4 +1,4 @@
-export interface NavigationLink {
+interface NavigationLink {
     title: string;
     link:  string;
 }

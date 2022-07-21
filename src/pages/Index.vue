@@ -53,11 +53,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Vue, Component } from 'vue-property-decorator';
 import NavigatorCard from '../components/NavigatorCard.vue';
-
-import { NavigationLink } from "../types/types";
 
 @Component({
   metaInfo: {
@@ -69,7 +66,7 @@ import { NavigationLink } from "../types/types";
 })
 export default class Index extends Vue {
   // data
-  cardTitle: string = '文章共赏';
+  cardTitle: string = '文章Article';
   myArticle: NavigationLink[] = [
     {
       title: 'jzm',
