@@ -3,6 +3,7 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const merge = require('webpack-merge');
 
 module.exports = {
   siteName: '月饼的',
@@ -25,4 +26,17 @@ module.exports = {
   },
   port: 1926,
   siteUrl : 'https://allen-bayern.github.io',
+  configureWebpack(config) {
+    return merge({
+      module: {
+        rules: [
+          {
+            test: /\.mjs$/,
+            include: /node_modules/,
+            type: "javascript/auto"
+          }
+        ]
+      }
+    }, config);
+  }
 };

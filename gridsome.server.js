@@ -12,7 +12,7 @@ module.exports = function (api) {
     if (isServer) {
       config.externals([
         nodeExternals({
-          allowlist: [/^vuetify/],
+          allowlist: [/^vuetify/, /^pinia/],
         }),
       ]);
     }

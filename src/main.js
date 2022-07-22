@@ -4,6 +4,7 @@
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import MainTheme from '~/layouts/Main.vue';
+import { createPinia, PiniaVuePlugin } from 'pinia';
 
 export default function (Vue, { appOptions, head }) {
   head.link.push({
@@ -18,8 +19,10 @@ export default function (Vue, { appOptions, head }) {
   
   const opts = {}; //opts includes, vuetify themes, icons, etc.
   Vue.use(Vuetify);
+  Vue.use(PiniaVuePlugin);
   
   appOptions.vuetify = new Vuetify(opts);
+  appOptions.pinia = new createPinia();
   
   // Set default layout as a global component
   Vue.component('Layout', MainTheme);
