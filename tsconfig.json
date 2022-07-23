@@ -8,7 +8,7 @@
       "sourceMap": true,
       "strict": true,
       "experimentalDecorators" : true,
-      "types": ["vuetify", "pinia"],
+      "types": ["vuetify", "pinia", "vue-loader"],
       "allowJs": true,
       "strictPropertyInitialization": false,
       "jsx" : "react-jsx",

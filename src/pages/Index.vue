@@ -55,6 +55,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import NavigatorCard from '../components/NavigatorCard.vue';
+import { NavigationLink } from "../types-used";
 
 @Component({
   metaInfo: {
