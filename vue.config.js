@@ -10,103 +10,110 @@ const addStyleResource = (rule, patterns = []) => {
 };
 
 /** @description the configuration of this project */
-const vueConfig = defineConfig({
-    transpileDependencies: true,
-    lintOnSave: 'error',
-    devServer: {
-        port: 7500,
-    },
-    // config css
-    css: {
-        loaderOptions: {
-            postcss: {
-                postcssOptions: {
-                    plugins: [
-                        // use px-to-vw
-                        require('postcss-px-to-viewport')({
-                            // 用vpx, 而非占用px
-                            unitToConvert: 'vpx',
+const vueConfig = defineConfig(() => {
+    return {
+        transpileDependencies: /prod/i.test(process.env?.NODE_ENV ?? ''),
+        lintOnSave: 'error',
+        devServer: {
+            port: 7500,
+        },
+        // config css
+        css: {
+            loaderOptions: {
+                postcss: {
+                    postcssOptions: {
+                        plugins: [
+                            // use px-to-vw
+                            require('postcss-px-to-viewport')({
+                                // 用vpx, 而非占用px
+                                unitToConvert: 'vpx',
 
-                            // 二倍图
-                            viewportWidth: 375,
-                            landscapeWidth: 667,
+                                // 二倍图
+                                viewportWidth: 375,
+                                landscapeWidth: 667,
 
-                            unitPrecision: 5,
-                            propList: ['*'],
-                            viewportUnit: 'vw',
-                            fontViewportUnit: 'vw',
-                            selectorBlackList: [],
-                            minPixelValue: 1,
+                                unitPrecision: 5,
+                                propList: ['*'],
+                                viewportUnit: 'vw',
+                                fontViewportUnit: 'vw',
+                                selectorBlackList: [],
+                                minPixelValue: 1,
 
-                            // use media query
-                            mediaQuery: true,
+                                // use media query
+                                mediaQuery: true,
 
-                            replace: true,
-                            exclude: undefined,
-                            include: undefined,
-                            landscape: false,
-                            landscapeUnit: 'vw',
-                        }),
-                    ],
+                                replace: true,
+                                exclude: undefined,
+                                include: undefined,
+                                landscape: false,
+                                landscapeUnit: 'vw',
+                            }),
+                        ],
+                    },
+                },
+                scss: {
+                    sourceMap: true,
                 },
             },
-            scss: {
-                sourceMap: true,
-            },
         },
-    },
-    // use webpack chain
-    chainWebpack(config) {
-        // add style resources
-        ['vue-modules', 'vue', 'normal-modules', 'normal'].forEach(type => {
-            addStyleResource(
-                config.module.rule('scss').oneOf(type),
-                require('path').resolve(__dirname, 'src/assets/sass/_common-use.scss')
-            );
-        });
+        // use webpack chain
+        chainWebpack(config) {
+            // add style resources
+            ['vue-modules', 'vue', 'normal-modules', 'normal'].forEach(type => {
+                addStyleResource(
+                    config.module.rule('scss').oneOf(type),
+                    require('path').resolve(__dirname, 'src/assets/sass/_common-use.scss')
+                );
+            });
 
-        // add resolve-url-loader
-        ['vue-modules', 'vue', 'normal-modules', 'normal'].forEach(rule => {
-            config.module
-                .rule('scss')
-                .oneOf(rule)
-                .use('resolve-url-loader')
-                .loader('resolve-url-loader')
-                .before('sass-loader')
+            // add resolve-url-loader
+            ['vue-modules', 'vue', 'normal-modules', 'normal'].forEach(rule => {
+                config.module
+                    .rule('scss')
+                    .oneOf(rule)
+                    .use('resolve-url-loader')
+                    .loader('resolve-url-loader')
+                    .before('sass-loader')
+                    .end()
+                    .use('sass-loader')
+                    .tap(opts => ({
+                        ...opts,
+                        sourceMap: true,
+                    }));
+            });
+
+            config
+                .plugin('html')
+                .tap(args => {
+                    const [basicConf] = args;
+                    // Modify Title
+                    return [{ ...basicConf, title: '月饼叔叔的小屋' }];
+                })
+                .end()
+                // import articles loader
+                .module.rule('articles')
+                .test([/\.md$/i, /\.txt$/i])
+                .use('raw-loader')
+                .loader('raw-loader')
+                .end()
+                .end()
+                .end()
+                .plugin('AutoImport')
+                .use(
+                    AutoImport({
+                        resolvers: [ElementPlusResolver()],
+                    })
+                )
+                .end()
+                .plugin('Components')
+                .use(
+                    Components({
+                        resolvers: [ElementPlusResolver()],
+                    })
+                )
                 .end();
-        });
-
-        config
-            .plugin('html')
-            .tap(args => {
-                const [basicConf] = args;
-                // Modify Title
-                return [{ ...basicConf, title: '月饼叔叔的小屋' }];
-            })
-            .end()
-            // import articles loader
-            .module.rule('articles')
-            .test([/\.md$/i, /\.txt$/i])
-            .use('raw-loader')
-            .loader('raw-loader')
-            .end()
-            .end()
-            .end()
-            .plugin('AutoImport')
-            .use(
-                AutoImport({
-                    resolvers: [ElementPlusResolver()],
-                })
-            )
-            .end()
-            .plugin('Components')
-            .use(
-                Components({
-                    resolvers: [ElementPlusResolver()],
-                })
-            )
-            .end();
-    },
+        },
+    };
 });
 
 module.exports = vueConfig;
